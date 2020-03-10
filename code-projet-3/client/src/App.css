@@ -1,0 +1,32 @@
+.nav-bar {
+  display:flex;
+  margin:10px;
+  align-items: center;
+}
+
+.nav-bar .bb-name {
+  text-decoration: none;
+  font-family:Montserrat;
+  color:#564832;
+  font-weight: bold;
+  font-size:18px;
+}
+
+.menu-logo{
+  margin-left: auto;
+}
+
+.menu-logo-img{
+  width:40px;
+}
+
+img {
+  max-width:100%
+}
+
+.description-text{
+  font-size:14px;
+  font-family:Lora;
+  font-style: italic;
+  text-align: center;
+}
