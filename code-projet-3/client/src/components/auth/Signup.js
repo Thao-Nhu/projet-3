@@ -53,38 +53,46 @@ class Signup extends React.Component{
                 <NavBar/>
                 <form onSubmit={this.handleFormSubmit}>
                     
-                    <div>
-                        <label>First Name:</label>
-                        <input type="text" name="firstname" value={this.state.firstname} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>First Name</label></div>
+                        <div className="form-field-item-input">
+                            <input type="text" name="firstname" value={this.state.firstname} onChange={e=>this.handleChange(e)}/>
+                        </div>
                     </div>
 
-                    <div>
-                        <label>Last Name:</label>
-                        <input type="text" name="lastname" value={this.state.lastname} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>Last Name</label></div>
+                        <div className="form-field-item-input">
+                            <input type="text" name="lastname" value={this.state.lastname} onChange={e=>this.handleChange(e)}/>
+                        </div>
                     </div>
 
-                    <div>
-                        <label>Phone Number:</label>
-                        <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>Phone Number</label></div>
+                        <div className="form-field-item-input">
+                            <input type="text" name="phonenumber" value={this.state.phonenumber} onChange={e=>this.handleChange(e)}/>
+                        </div>
                     </div>
 
-                    <div>
-                        <label>Email:</label>
-                        <input type="email" name="email" value={this.state.email} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>Email</label></div>
+                        <div className="form-field-item-input">
+                            <input type="email" name="email" value={this.state.email} onChange={e=>this.handleChange(e)}/>
+                        </div>   
                     </div>
 
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" name="password" value={this.state.password} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>Password</label></div>
+                        <div className="form-field-item-input">
+                            <input type="password" name="password" value={this.state.password} onChange={e=>this.handleChange(e)}/>
+                        </div>
                     </div>
 
-                    <button>Create the account</button>
+                    <div className="sign-up-div"><button className="sign-up-button">SIGN UP</button></div>
                 </form>
-                <p>
-                    Already have account ?
-                    <Link to={"/login"}>Log In</Link>
-                </p>
-                <Link to={"/"}>Home</Link>
+                <div className="message">
+                    Already have an account ? <Link className="button" to={"/login"}>LOG IN</Link>
+                </div>
             </div>
         )
     }

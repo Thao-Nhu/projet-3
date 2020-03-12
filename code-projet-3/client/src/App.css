@@ -30,3 +30,69 @@ img {
   font-style: italic;
   text-align: center;
 }
+
+.footer{
+  background-color:#564832 ;
+  color:white;
+  font-size: 12px;
+  font-family: Lora;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menu-item-div {
+  background-color:#564832 ;
+  margin-top:5px;
+  margin-bottom:5px;
+  padding:10px;
+  font-size: 12px;
+  font-family: Lora;
+  font-weight: bold;
+}
+
+.menu-item{
+  text-decoration: none;
+  color:white;
+}
+
+.form-field-item{
+  display:flex;
+  margin:10px;
+}
+
+.form-field-item-label{
+  background-color: #564832;
+  color: white;
+  font-family: Montserrat;
+  font-size:12px;
+  margin-right:10px;
+  padding:10px;
+  width:30%;
+}
+
+.form-field-item-input{
+  border:1px solid;
+  border-color:#564832 ;
+  width:70%;
+}
+
+.sign-up-button{
+  color:#564832 ;
+  font-weight: bold;
+  font-size:18px;
+}
+
+.sign-up-div{
+  text-align: center;
+}
+
+.button{
+  color:#564832 ;
+  font-weight: bold;
+  font-size:18px;
+  text-decoration: none;
+}
+
+.message{
+  margin:10px;
+}

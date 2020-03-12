@@ -30,23 +30,26 @@ class Login extends React.Component{
                 <NavBar/>
                 <form onSubmit={this.handleFormSubmit}>
                     
-                    <div>
-                        <label>Email</label>
-                        <input type="email" name="email" value={this.state.email} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>Email</label></div>
+                        <div className="form-field-item-input">
+                            <input type="email" name="email" value={this.state.email} onChange={e=>this.handleChange(e)}/>
+                        </div>  
                     </div>
 
-                    <div>
-                        <label>Password</label>
-                        <input type="password" name="password" value={this.state.password} onChange={e=>this.handleChange(e)}/>
+                    <div className="form-field-item">
+                        <div className="form-field-item-label"><label>Password</label></div>
+                        <div className="form-field-item-input">
+                            <input type="password" name="password" value={this.state.password} onChange={e=>this.handleChange(e)}/>
+                        </div>
                     </div>
                     
-                    <button>Log In</button>
+                    <div className="sign-up-div"><button className="sign-up-button">Log In</button></div>
                 </form>
-                <p>
-                    Dont have account ?
-                    <Link to={"/signup"}>Sign up</Link>
-                </p>
-                <Link to={"/"}>Home</Link>
+                <div className="message">
+                    Don't have an account ? <Link className="button" to={"/signup"}>Sign up</Link>
+                </div>
+                
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import AuthService from './auth/auth-service.js'
+import AuthService from './auth/auth-service.js';
+import NavBar from './NavBar.js'
 class Profile extends React.Component{
     constructor(props){
         super(props);
@@ -21,18 +22,11 @@ class Profile extends React.Component{
     render(){
         return(
             <div>
+                <NavBar/>
                 {this.props.userInSession?
                     <div>
-                        <div>
-                            <div className="field-name">Firstname</div>
-                            <div>{this.props.userInSession.firstname}</div>
-                        </div>
-                        <div className="field">
-                            <div className="field-name">Firstname</div>
-                            <div>{this.props.userInSession.firstname}</div>
-                        </div>
-                        
-                        <button onClick={()=>this.logoutUser()}>Logout</button>
+                        <div className="message">Hello {this.props.userInSession.firstname} {this.props.userInSession.lastname}</div>   
+                        <button className="button" onClick={()=>this.logoutUser()}>LOG OUT</button>
                     </div>
                     :
                     <div>
@@ -40,9 +34,7 @@ class Profile extends React.Component{
                         Please <Link to="/login">Log In</Link> to see your account
                     </div> 
                 }
-                
-                
-                <Link to="/">Home</Link>       
+           
             </div>
         )
     }
