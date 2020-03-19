@@ -24,6 +24,24 @@ img {
   max-width:100%
 }
 
+.container-for-tag{
+  position:relative;
+}
+
+.tag{
+  position:absolute;
+  float:left;
+  left:10px;
+  top:200px;
+  font-family:Lora;
+  font-size:12px;
+  background-color: white;
+  padding:5px;
+  border-radius:12px;
+  text-decoration: none;
+  color:#564832;
+}
+
 .description-text{
   font-size:14px;
   font-family:Lora;

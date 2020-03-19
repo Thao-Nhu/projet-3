@@ -4,7 +4,9 @@ import Homepage from './components/Homepage.js';
 import Signup from './components/auth/Signup.js';
 import Login from './components/auth/Login.js';
 import Profile from './components/Profile.js';
-import Menu from './components/Menu.js'
+import Menu from './components/Menu.js';
+import AvailabilityRequest from './components/AvailabilityRequest.js';
+import AvailabilityDates from './components/AvailabilityDates.js'
 import {Switch,Route} from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
 
@@ -41,6 +43,8 @@ class App extends React.Component {
         <Route exact path="/signup" render={()=><Signup getUser={this.getTheUser}/>}/>
         <Route exact path="/login" render={()=><Login getUser={this.getTheUser}/>}/>
         <Route exact path="/menu" component={Menu}/>
+        <Route exact path="/booking/availability-request" component={AvailabilityRequest}/>
+        <Route exact path="/booking/availability-display" component={AvailabilityDates}/>
       </Switch>
       </div>
     );

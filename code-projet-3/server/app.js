@@ -86,6 +86,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+const roomRoutes = require('./routes/room');
+app.use('/booking', roomRoutes);
       
 
 module.exports = app;
