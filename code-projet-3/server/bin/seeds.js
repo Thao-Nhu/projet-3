@@ -47,8 +47,8 @@ User.deleteMany()
   throw err
 })*/
 
-var startDate = new Date("2020-03-01"); //YYYY-MM-DD
-var endDate = new Date("2020-03-21"); //YYYY-MM-DD
+var startDate = new Date("2020-03-21"); //YYYY-MM-DD
+var endDate = new Date("2020-06-30"); //YYYY-MM-DD
 
 var getDateArray = function(start, end) {
     var arr = new Array();

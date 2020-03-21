@@ -13,7 +13,10 @@ import AuthService from './components/auth/auth-service';
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.state={loggedInUser:null};
+    this.state={
+      loggedInUser:null,
+      AvailabilityDates:[]
+    };
     this.service=new AuthService()
   }
   fetchUser(){
@@ -33,8 +36,14 @@ class App extends React.Component {
       loggedInUser:userObj
     })
   }
+  handleUpdateAvDates=(avDates)=>{
+    this.setState({
+      AvailabilityDates:avDates
+    })
+  }
   render(){
     //console.log("this.service",this.service.signup())
+    //console.log("this.state.availabilydates",this.state.AvailabilityDates)
     return (
       <div className="App">
       <Switch>
@@ -43,8 +52,8 @@ class App extends React.Component {
         <Route exact path="/signup" render={()=><Signup getUser={this.getTheUser}/>}/>
         <Route exact path="/login" render={()=><Login getUser={this.getTheUser}/>}/>
         <Route exact path="/menu" component={Menu}/>
-        <Route exact path="/booking/availability-request" component={AvailabilityRequest}/>
-        <Route exact path="/booking/availability-display" component={AvailabilityDates}/>
+        <Route exact path="/booking/availability-request" render={()=><AvailabilityRequest updateAvDates={this.handleUpdateAvDates}/>} />
+        <Route exact path="/booking/availability-display" render={()=><AvailabilityDates AvDates={this.state.AvailabilityDates}/>}/>
       </Switch>
       </div>
     );

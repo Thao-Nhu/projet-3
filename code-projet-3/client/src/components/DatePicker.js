@@ -27,12 +27,12 @@ class DatePicker extends React.Component {
             <KeyboardDatePicker    
               disableToolbar
               variant="inline"
-              format="MM/dd/yyyy"
+              format="dd/MM/yyyy"
               margin="normal"
-              id="date-picker-inline"
               label={this.props.label}
               value={this.props.date}
               onChange={this.handleDateChange}
+              disablePast="true"
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
@@ -45,4 +45,4 @@ class DatePicker extends React.Component {
  
 }
 
-export default DatePicker
+export default DatePicker;
