@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar.js';
 import {Link} from 'react-router-dom';
-import StaticDatePicker from './Calendar.js';
+import StaticDatePicker from './Old_Calendar.js';
 import moment from 'moment';
 
 class AvailabilityDates extends React.Component{
