@@ -32,6 +32,9 @@ class AvailabilityDates extends React.Component{
     }
     
     render(){
+        //console.log("1st Av Dates",Moment(this.props.AvDates[0]).add(1,"Y")._d)
+        //console.log("Moment()._d",Moment()._d)
+        
         var enumerateDaysBetweenDates = function(startDate, endDate) {
             var dates = [];
             var currDate = Moment(startDate).startOf('day');
@@ -42,10 +45,17 @@ class AvailabilityDates extends React.Component{
             }
             return dates;
         };
-        const s=Moment()._d;
-        const e=Moment().add(1,"Y")._d;
+        const s=Moment().toDate();
+        const e=Moment().add(1,"Y").toDate();
         const AvDates = this.props.AvDates.map(date=>Moment(date).format("DD/MM/YYYY"))
-        const disabledDates = enumerateDaysBetweenDates(s,e).filter(date=>!AvDates.includes(Moment(date).format("DD/MM/YYYY"))).map(date=>new Date(date))
+        const disabledDates = enumerateDaysBetweenDates(s,e).filter(date=>{
+            //console.log("AvDates",AvDates)
+            //console.log("date",Moment(date).format("DD/MM/YYYY"))
+            //console.log("inclus ?",AvDates.includes(Moment(date).format("DD/MM/YYYY")))
+            return !AvDates.includes(Moment(date).format("DD/MM/YYYY"))
+            }
+            ).map(date=>new Date(date))
+        console.log("this.props.AvDates[0]).toDate()",Moment(this.props.AvDates[0]).toDate())
         return(
             <div> 
                 <NavBar/>
@@ -56,8 +66,12 @@ class AvailabilityDates extends React.Component{
                     ranges={[this.state]}
                     onChange={this.handleSelect}
                     disabledDates={disabledDates}
-                    minDate={Moment()._d}
-                    maxDate={Moment().add(1,"Y")._d}
+                    minDate={Moment(this.props.AvDates[0]).toDate()}
+                    maxDate={Moment(this.props.AvDates[0]).add(1,"Y").toDate()}
+                    shownDate={Moment(this.props.AvDates[0]).toDate()}
+                    //startDatePlaceholder={Moment(this.props.AvDates[0]).toDate()}
+                    //minDate={Moment()._d}
+                    //maxDate={Moment().add(1,"Y")._d}
                 />
                 <div className="sign-up-div"><Link to="/booking/availability-request" className="button">Change dates for availability research</Link></div>
             </div>

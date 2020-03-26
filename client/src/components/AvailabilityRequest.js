@@ -42,9 +42,10 @@ class AvailabilityRequest extends React.Component{
         return(
             <div>
                 <NavBar/>
-                    <DatePicker date={this.state.startDate} getDate={this.getStartDate} label="Start date"/>
-                    <DatePicker date={this.state.endDate} getDate={this.getEndDate}  label="End date"/>
-                    <div className="sign-up-div sign-up-button" onClick={this.handleClick}>Submit</div>   
+                <div className="sign-up-div button">Please indicate your travel dates</div>
+                <DatePicker date={this.state.startDate} getDate={this.getStartDate} label="Start date"/>
+                <DatePicker date={this.state.endDate} getDate={this.getEndDate}  label="End date"/>
+                <div className="sign-up-div sign-up-button" onClick={this.handleClick}>Submit</div>   
             </div>
         )
     }

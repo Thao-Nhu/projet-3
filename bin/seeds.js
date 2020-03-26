@@ -5,6 +5,7 @@
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const Moment = require("moment");
 //const User = require("../models/User");
 const Room = require('../models/Room')
 
@@ -47,20 +48,20 @@ User.deleteMany()
   throw err
 })*/
 
-var startDate = new Date("2020-03-21"); //YYYY-MM-DD
-var endDate = new Date("2020-06-30"); //YYYY-MM-DD
+var enumerateDaysBetweenDates = function(startDate, endDate) {
+  var dates = [];
+  var currDate = Moment(startDate).startOf('day');
+  var lastDate = Moment(endDate).startOf('day');
+  while(currDate.add(1, 'days').diff(lastDate) < 0) {
+      //console.log(currDate.toDate());
+      dates.push(currDate.clone().toDate());
+  }
+  return dates;
+};
+const s=new Date("2020-03-26");
+const e=new Date("2021-03-26");
 
-var getDateArray = function(start, end) {
-    var arr = new Array();
-    var dt = new Date(start);
-    while (dt <= end) {
-        arr.push(new Date(dt));
-        dt.setDate(dt.getDate() + 1);
-    }
-    return arr;
-}
-
-var dateArr = getDateArray(startDate, endDate);
+var dateArr = enumerateDaysBetweenDates(s,e).map(date=>new Date(date.toISOString().split('T')[0]));
 
 const room={
   book_Ids: [],

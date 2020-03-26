@@ -19,6 +19,7 @@ class App extends React.Component {
     };
     this.service=new AuthService()
   }
+  
   fetchUser(){
     if(this.state.loggedInUser===null){
       this.service.loggedin()
