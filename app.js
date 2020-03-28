@@ -84,11 +84,14 @@ require('./passport')(app);
 const index = require('./routes/index');
 app.use('/', index);
 
+const profile = require('./routes/profile');
+app.use('/', profile);
+
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 const roomRoutes = require('./routes/room');
 app.use('/booking', roomRoutes);
-      
+
 
 module.exports = app;

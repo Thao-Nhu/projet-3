@@ -44,7 +44,7 @@ class Login extends React.Component{
                         </div>
                     </div>
                     
-                    <div className="sign-up-div"><button className="sign-up-button">Log In</button></div>
+                    <div className="div"><button className="button">Log In</button></div>
                 </form>
                 <div className="message">
                     Don't have an account ? <Link className="button" to={"/signup"}>Sign up</Link>

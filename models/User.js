@@ -7,6 +7,7 @@ const userSchema = new Schema({
   email: {type:String},
   phonenumber: String,
   password:String,
+  bookings: [{type: Schema.Types.ObjectId, ref: 'Booking'}],
 }, {
   timestamps: {
     createdAt: 'created_at',
