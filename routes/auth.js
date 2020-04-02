@@ -89,6 +89,13 @@ router.post("/signup", (req, res, next) => {
           res.status(500).json({messag:"Login after signup went bad"});
           return;
         }
+          /*User.findById(req.user._id).populate('bookings')
+          .then(response => {
+              res.status(200).json(response);
+          })
+          .catch(err => {
+              res.json(err);
+          })*/
         res.status(200).json(newUser)
       })
     })
@@ -108,7 +115,14 @@ router.post('/logout', (req, res, next) => {
 
 router.get('/loggedin', (req, res, next) => {
   // req.isAuthenticated() is defined by passport
-  if (req.isAuthenticated()) {
+      if (req.isAuthenticated()) {
+        /*User.findById(req.user._id).populate('bookings')
+        .then(response => {
+            res.status(200).json(response);
+        })
+        .catch(err => {
+            res.json(err);
+        })*/
       res.status(200).json(req.user);
       return;
   }

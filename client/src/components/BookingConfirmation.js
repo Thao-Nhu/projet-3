@@ -10,7 +10,7 @@ class BookingConfirmation extends React.Component{
                 {this.props.userInSession?
                 <div className="booking-guide">
                     <div className="message">Thank you <span style={{textTransform:"capitalize"}}>{this.props.userInSession.firstname}</span> <span style={{textTransform:"capitalize"}}>{this.props.userInSession.lastname}</span> for your request.</div>
-                    <div>Your booking from {Moment(this.props.bookingStartDate).format("DD/MM/YYYY")} to {Moment(this.props.bookingEndDate).format("DD/MM/YYYY")}, under booking id {this.props.bookingID} has been taken into account.</div>
+                    <div>Your booking from {Moment(this.props.booking.start_date).format("DD/MM/YYYY")} to {Moment(this.props.booking.end_date).format("DD/MM/YYYY")}, under booking id {this.props.booking._id} has been taken into account.</div>
                     <div>We will send you an email to confirm your booking under 2 working days.</div>
                 </div>
                 :

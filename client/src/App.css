@@ -21,7 +21,13 @@
 }
 
 img {
-  max-width:100%
+  max-width:100%;
+}
+
+.homepage-pictures{
+  width:100%;
+  height:400px;
+  object-fit: cover;
 }
 
 .container-for-tag{
@@ -30,9 +36,7 @@ img {
 
 .tag{
   position:absolute;
-  float:left;
-  left:10px;
-  top:200px;
+  float:left; 
   font-family:Lora;
   font-size:12px;
   background-color: white;
@@ -40,6 +44,29 @@ img {
   border-radius:12px;
   text-decoration: none;
   color:#564832;
+}
+
+.booking-tag{
+  left:10px;
+  top:300px;
+}
+
+.price-tag{
+  left:10px;
+  top:250px;
+}
+
+.arrow-left{
+  position:absolute;
+  float:left; 
+  left:0px;
+  top:200px;
+}
+.arrow-right{
+  position:absolute;
+  float:right; 
+  right:0px;
+  top:200px;
 }
 
 .description-text{
@@ -105,6 +132,17 @@ img {
   text-decoration: none;
 }
 
+.booking-button{
+  background-color: #564832 ;
+  color:white ;
+  font-weight: bold;
+  font-size:18px;
+  text-decoration: none;
+  padding:5px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
 .message{
   margin:10px;
 }
@@ -113,4 +151,30 @@ img {
   margin:10px;
   font-size:14px;
   font-family: Lora;
+}
+
+table {
+  table-layout: fixed;
+  width:100%
+}
+
+th {
+  white-space:nowrap;
+}
+
+table .td1{
+  width:30%
+}
+
+td,tr {
+  white-space:nowrap;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.booking-field{
+  margin:0 auto;
+  text-align: center;
 }

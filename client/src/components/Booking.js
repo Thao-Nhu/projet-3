@@ -15,7 +15,8 @@ class Booking extends React.Component{
             endDate: new Date(),
             key: 'selection'},
         stayComment:"",
-        specificRequest:""
+        specificRequest:"",
+        price:0
     }
 
     /*componentDidMount(){
@@ -34,7 +35,9 @@ class Booking extends React.Component{
         const stayComment = this.state.stayComment;
         const specificRequest = this.state.specificRequest;
         const userID = this.props.userInSession._id;
-        axios.post("http://localhost:5000/booking", { startDate,endDate,stayComment,specificRequest,userID })
+        const stayLengthInNights=Moment(this.state.calendar.endDate).diff(Moment(this.state.calendar.startDate),"days")+1
+        const totalPrice=60*stayLengthInNights
+        axios.post("http://localhost:5000/booking", { startDate,endDate,stayComment,specificRequest,userID,totalPrice })
         .then( (booking) => {
             //this.props.getData();
             this.setState({
@@ -43,10 +46,11 @@ class Booking extends React.Component{
                     endDate: new Date(),
                     key: 'selection'},
                 stayComment:"",
-                specificRequest:""
+                specificRequest:"",
+                price:0
             });
-            console.log("booking.data.start_date",booking.data.start_date)
-            this.props.updateBooking(booking.data.start_date,booking.data.end_date,booking.data._id)
+            //console.log("booking.data.start_date",booking.data.start_date)
+            this.props.updateBooking(booking.data)
             this.props.history.push("/booking-confirmation");
         })
         .catch( error => console.log(error) )
@@ -92,16 +96,16 @@ class Booking extends React.Component{
             }
             ).map(date=>new Date(date))
         //console.log("this.props.AvDates[0]).toDate()",Moment(this.props.AvDates[0]).toDate())
-        console.log("_selected start date of trip",this.state.calendar.startDate)
-        console.log("selected end date of trip",this.state.calendar.endDate)
+        //console.log("_selected start date of trip",this.state.calendar.startDate)
+        //console.log("selected end date of trip",this.state.calendar.endDate)
         const stayLengthInNights=Moment(this.state.calendar.endDate).diff(Moment(this.state.calendar.startDate),"days")+1
         const totalPrice=60*stayLengthInNights
         return(
             <div> 
                 <NavBar/>
                 {this.props.userInSession?
-                <div>
-                    <div className="booking-guide">On the date range you are searching, we are available on below dates. You can start booking by selecting the start and end date of your trip on the calendar, leaving us a few words about your trip purpose and your specific requests that you might have</div>
+                <div className="booking-field">
+                    <div className="booking-guide">On the date range you are searching, we are available on below dates. You can start booking by <span style={{fontWeight:"bold"}}>selecting the start and end date of your trip on the calendar</span>, leaving us a few words about your <span style={{fontWeight:"bold"}}>trip purpose</span> and your <span style={{fontWeight:"bold"}}>specific requests</span> that you might have</div>
                     <form onSubmit={this.handleFormSubmit}>
                         <DateRange
                         editableDateInputs={true}
@@ -134,8 +138,8 @@ class Booking extends React.Component{
                             <textarea name="specificRequest" value={this.state.specificRequest} onChange={ e => this.handleChange(e)} />
                             </div> 
                         </div>
-                        <div className="div"><Link to="/booking/availability-request">Change dates for availability research</Link></div>
-                        <button className="div button">Submit booking</button>
+                        <div className="div"><Link className="booking-button" to="/booking/availability-request">Change dates for availability research</Link></div>
+                        <div className="div"><button className="booking-button">Submit booking</button></div>
                     </form>
                     
                 </div>

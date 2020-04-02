@@ -13,7 +13,8 @@ router.post('/', (req, res, next)=>{
         specific_request: req.body.specificRequest,
         stay_comment: req.body.stayComment,
         user_id: req.body.userID,
-        booking_status:"booked",
+        price: req.body.totalPrice,
+        booking_status:"booking-under-confirmation",
         payment_status:"not-paid"
     })
       .then(response => {

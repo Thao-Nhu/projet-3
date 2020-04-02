@@ -7,9 +7,10 @@ const bookingSchema = new Schema({
     end_date:Date,
     stay_comment:String,
     specific_request:String,
+    price:Number,
     booking_status:{
       type:String,
-      enum: ['booked','booking-confirmed', 'guest-arrived', 'guest-departed']
+      enum: ['booking-under-confirmation','booking-confirmed', 'guest-arrived', 'guest-departed']
     },
     payment_status:{
         type:String,
