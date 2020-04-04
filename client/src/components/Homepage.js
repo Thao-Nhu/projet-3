@@ -12,14 +12,14 @@ class Homepage extends React.Component{
         indexImgs: 0
     }
     handleClick(delta) {
-        let imgs=["img/chambreln.jpg","img/maison.jpg","img/garden.jpg"]
+        let imgs=["/img/chambre1.png","/img/maison.jpg","/img/garden.jpg"]
         let length = imgs.length
             this.setState(prevState => ({
             indexImgs: (prevState.indexImgs + delta + length) % length
         }))
       }
     render(){
-        let imgs=["img/chambreln.jpg","img/maison.jpg","img/garden.jpg"]
+        let imgs=["/img/chambre1.png","/img/maison.jpg","/img/garden.jpg"]
         let src = imgs[this.state.indexImgs]
         return(
             <div>
