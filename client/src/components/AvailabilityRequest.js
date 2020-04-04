@@ -26,7 +26,7 @@ class AvailabilityRequest extends React.Component{
     handleClick = (event) => {
         const startDate=this.state.startDate;
         const endDate=this.state.endDate;
-        axios.post("http://localhost:5000/booking/availability-request", { startDate, endDate })
+        axios.post(`${process.env.REACT_APP_APIURL || ""}/booking/availability-request`, { startDate, endDate })
         .then( (availableDates) => {
             this.setState(availableDates.data.available_Dates);
             this.props.updateAvDates(availableDates.data.available_Dates);

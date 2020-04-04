@@ -37,7 +37,7 @@ class Booking extends React.Component{
         const userID = this.props.userInSession._id;
         const stayLengthInNights=Moment(this.state.calendar.endDate).diff(Moment(this.state.calendar.startDate),"days")+1
         const totalPrice=60*stayLengthInNights
-        axios.post("http://localhost:5000/booking", { startDate,endDate,stayComment,specificRequest,userID,totalPrice })
+        axios.post(`${process.env.REACT_APP_APIURL || ""}/booking`, { startDate,endDate,stayComment,specificRequest,userID,totalPrice })
         .then( (booking) => {
             //this.props.getData();
             this.setState({

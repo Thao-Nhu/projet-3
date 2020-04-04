@@ -9,6 +9,7 @@ class Menu extends React.Component{
                 <div className="menu-item-div"><Link className="menu-item" to="/">HOME</Link></div>
                 <div className="menu-item-div"><Link className="menu-item" to="/signup">SIGN UP</Link></div>
                 <div className="menu-item-div"><Link className="menu-item" to="/login">LOG IN</Link></div>
+                <div className="menu-item-div"><Link className="menu-item" to="/booking">BOOKING</Link></div>
                 <div className="menu-item-div"><Link className="menu-item" to="/profile">YOUR PROFILE</Link></div>      
             </div>
         )

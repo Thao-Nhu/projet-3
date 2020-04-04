@@ -17,7 +17,7 @@ const cors = require('cors');
 
 
 mongoose
-  .connect('mongodb://localhost/ln-bb-server', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -93,5 +93,50 @@ app.use('/auth', authRoutes);
 const roomRoutes = require('./routes/room');
 app.use('/booking', roomRoutes);
 
+//
+// After routes: static server || React SPA
+//
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// route not-found => could be a React route => render the SPA
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'), function (err) {
+    if (err) {
+      next(err)
+    }
+  })
+});
+
+// catch 404
+// app.use((req, res, next) => {
+//   console.log('404')
+//   const err = new Error()
+//   err.status = 404;
+
+//   next(err);
+// });
+
+app.use((err, req, res, next) => {
+  function er2JSON(er) {
+    // http://stackoverflow.com/questions/18391212/is-it-not-possible-to-stringify-an-error-using-json-stringify#18391212
+    var o = {};
+  
+    Object.getOwnPropertyNames(er).forEach(function (key) {
+      o[key] = er[key];
+    });
+  
+    return o;
+  }
+
+  // always log the error
+  console.error('ERROR', req.method, req.path, err);
+
+  err = er2JSON(err);
+  err.status || (err.status = 500); // default to 500
+  res.status(err.status);
+
+  res.json(err);
+});
 
 module.exports = app;

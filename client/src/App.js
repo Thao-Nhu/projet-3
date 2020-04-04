@@ -7,7 +7,10 @@ import Profile from './components/Profile.js';
 import Menu from './components/Menu.js';
 import AvailabilityRequest from './components/AvailabilityRequest.js';
 import Booking from './components/Booking.js';
-import BookingConfirmation from './components/BookingConfirmation.js'
+import BookingConfirmation from './components/BookingConfirmation.js';
+import Contact from './components/Contact.js';
+import Aboutus from './components/Aboutus.js';
+import Privacy from './components/Privacy.js';
 import {Switch,Route} from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
 //import axios from 'axios';
@@ -69,6 +72,9 @@ class App extends React.Component {
         <Route exact path="/signup" render={()=><Signup getUser={this.getTheUser}/>}/>
         <Route exact path="/login" render={()=><Login getUser={this.getTheUser}/>}/>
         <Route exact path="/menu" component={Menu}/>
+        <Route exact path="/contact" component={Contact}/>
+        <Route exact path="/aboutus" component={Aboutus}/>
+        <Route exact path="/privacy" component={Privacy}/>
         <Route exact path="/booking/availability-request" render={()=><AvailabilityRequest updateAvDates={this.handleUpdateAvDates} userInSession={this.state.loggedInUser}/>} />
         <Route exact path="/booking" render={()=><Booking AvDates={this.state.AvailabilityDates} updateBooking={this.handleBooking} userInSession={this.state.loggedInUser}/>}/>
         <Route exact path="/booking-confirmation" render={()=><BookingConfirmation booking={this.state.newBooking} userInSession={this.state.loggedInUser}/>}/>

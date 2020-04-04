@@ -40,7 +40,7 @@ class Profile extends React.Component{
     getBookings = () => {
         if (this.props.userInSession){
           console.log("loggedInUser",this.props.userInSession)
-          axios.get(`http://localhost:5000/yourprofile/${this.props.userInSession._id}`)
+          axios.get(`${process.env.REACT_APP_APIURL || ""}/yourprofile/${this.props.userInSession._id}`)
           .then( responseFromApi =>{
               const listOfBookings = responseFromApi.data.bookings;
               console.log("listOfBookings in getBookings method", listOfBookings)
@@ -83,6 +83,10 @@ class Profile extends React.Component{
                                             <tr>
                                                 <td className="td1">current status:</td>
                                                 <td>{booking.booking_status}</td>
+                                            </tr>
+                                            <tr>
+                                                <td className="td1">price:</td>
+                                                <td>{booking.price} €</td>
                                             </tr>
                                             <tr>
                                                 <td className="td1">payment status:</td>

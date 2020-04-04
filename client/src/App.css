@@ -79,7 +79,7 @@ img {
 .footer{
   background-color:#564832 ;
   color:white;
-  font-size: 12px;
+  font-size: 14px;
   font-family: Lora;
   font-weight: bold;
   text-align: center;
@@ -163,7 +163,7 @@ th {
 }
 
 table .td1{
-  width:30%
+  width:35%
 }
 
 td,tr {

@@ -15,7 +15,7 @@ class Homepage extends React.Component{
         }))
       }
     render(){
-        let imgs=["/img/maison.jpg","/img/chambreln.jpg","/img/garden.jpg"]
+        let imgs=["/img/chambreln.jpg","/img/maison.jpg","/img/garden.jpg"]
         let src = imgs[this.state.indexImgs]
         return(
             <div>

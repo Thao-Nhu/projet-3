@@ -26,7 +26,7 @@ class DatePicker extends React.Component {
           <Grid container justify="space-around">
             <KeyboardDatePicker    
               disableToolbar
-              variant="inline"
+              //variant="inline"
               format="dd/MM/yyyy"
               margin="normal"
               label={this.props.label}
