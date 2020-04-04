@@ -78,11 +78,7 @@ app.use(session({
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 }))
 app.use(flash());
-require('./passport')(app);
-    
-
-const index = require('./routes/index');
-app.use('/', index);
+require('./passport')(app);  
 
 const profile = require('./routes/profile');
 app.use('/', profile);
