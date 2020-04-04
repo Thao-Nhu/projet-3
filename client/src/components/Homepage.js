@@ -2,9 +2,9 @@ import React from 'react';
 import NavBar from './NavBar.js';
 import Footer from './Footer.js';
 import {Link} from 'react-router-dom';
-import maison from "../../public/img/maison.jpg";
-import chambre from "../../public/img/chambreln.jpg";
-import jardin from "../../public/img/garden.jpg";
+//import chambre from "../../public/img/chambreln.jpg";
+//import maison from "../../public/img/maison.jpg";
+//import jardin from "../../public/img/garden.jpg";
 
 
 class Homepage extends React.Component{
@@ -12,14 +12,14 @@ class Homepage extends React.Component{
         indexImgs: 0
     }
     handleClick(delta) {
-        let imgs=[chambre,maison,jardin]
+        let imgs=["img/chambreln.jpg","img/maison.jpg","img/garden.jpg"]
         let length = imgs.length
             this.setState(prevState => ({
             indexImgs: (prevState.indexImgs + delta + length) % length
         }))
       }
     render(){
-        let imgs=[chambre,maison,jardin]
+        let imgs=["img/chambreln.jpg","img/maison.jpg","img/garden.jpg"]
         let src = imgs[this.state.indexImgs]
         return(
             <div>
